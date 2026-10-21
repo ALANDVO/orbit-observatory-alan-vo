@@ -1,0 +1,9 @@
+# Frontend docker ignore
+node_modules/
+dist/
+build/
+.env
+.env.local
+.git/
+*.log
+*.local
