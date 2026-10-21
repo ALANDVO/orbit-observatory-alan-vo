@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "name": "orbit-observatory-alan-vo",
+  "owner": "ALANDVO",
+  "email": "alanvo@gmail.com",
+  "domain": "AI/ML developer tools",
+  "workflows": [
+    "Agent lifecycle management (create, configure, monitor, retire)",
+    "Multi-agent workflow execution with DAG-based orchestration",
+    "Observability and debugging of agent interactions"
+  ],
+  "auth": "oidc-keycloak-saml-broker",
+  "llm_providers": [
+    "openai-compatible",
+    "anthropic",
+    "gemini",
+    "ollama"
+  ],
+  "summary": "Work in progress: orbit-observatory-alan-vo",
+  "status": "work-in-progress"
+}
