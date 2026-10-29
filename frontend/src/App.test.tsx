@@ -35,9 +35,9 @@ describe('Dashboard', () => {
 
   it('shows planned features', () => {
     renderWithRouter(<Dashboard />)
-    expect(screen.getByText('Agent Management')).toBeInTheDocument()
-    expect(screen.getByText('Workflow Execution')).toBeInTheDocument()
-    expect(screen.getByText('OIDC Authentication')).toBeInTheDocument()
+    expect(screen.getByText('Agent Management (CRUD, listing, detail views)')).toBeInTheDocument()
+    expect(screen.getByText('Workflow Execution (DAG-based, monitoring, history)')).toBeInTheDocument()
+    expect(screen.getByText('OIDC Authentication (Keycloak, JWT validation)')).toBeInTheDocument()
   })
 })
 
@@ -64,7 +64,7 @@ describe('HealthCheck', () => {
       expect(screen.getByText('Health Checks')).toBeInTheDocument()
     })
 
-    expect(screen.getByText('healthy')).toBeInTheDocument()
+    expect(screen.getAllByText('healthy')).toHaveLength(2)
     expect(screen.getByText('Orbit Observatory')).toBeInTheDocument()
     expect(screen.getByText('connected')).toBeInTheDocument()
   })
