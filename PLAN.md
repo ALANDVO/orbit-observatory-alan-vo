@@ -4,7 +4,7 @@ Each round completes one feature or repair. Future items are planned, not implem
 
 ## Current round
 
-skeleton
+agent-management
 
 ## Roadmap
 
@@ -25,13 +25,17 @@ Tests: `backend/app/tests/test_health.py`, `backend/app/tests/conftest.py`, `fro
 
 ### agent-management — Agent CRUD and listing
 
-Status: planned
+Status: in_progress
 
 Acceptance:
 - Create, read, update, delete agents via API
 - Frontend dashboard lists agents with pagination
 - Agent detail view shows configuration
 - SQLite persistence with audit log
+
+Implementation: `backend/app/models/agent.py`, `backend/app/schemas/agent.py`, `backend/app/api/agents.py`, `backend/app/api/deps.py`, `backend/app/main.py`, `backend/app/tests/test_agents.py`
+
+Tests: `backend/app/tests/test_agents.py`
 
 ### workflow-execution — Workflow execution and monitoring
 
