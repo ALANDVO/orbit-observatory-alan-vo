@@ -52,3 +52,12 @@ coverage/
 # Backend
 backend/.pytest_cache/
 venv/
+.turbo/
+**/data/media/
+*.db-wal
+*.db-shm
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm

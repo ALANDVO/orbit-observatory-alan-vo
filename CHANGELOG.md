@@ -1,8 +1,21 @@
 # Changelog
 
-## 1.1.0 — work-in-progress checkpoint
+## 1.2.0 — work-in-progress checkpoint
 
 Partial code published for continued development. Known issues: STATUS.md.
+
+## 1.1.0 — work-in-progress checkpoint
+
+### Added
+- Agent management backend API (CRUD operations)
+- Agent SQLAlchemy model with name, description, system_prompt, config, is_active
+- Pydantic schemas for agent create, update, response, and paginated list
+- RESTful API endpoints: POST/GET/PATCH/DELETE /api/v1/agents
+- Agent listing with pagination and active status filtering
+- Comprehensive test suite for agent API (12 tests)
+
+### Changed
+- Updated PLAN.md and feature-plan.json to reflect agent-management progress
 
 ## 1.0.0 — work-in-progress checkpoint
 

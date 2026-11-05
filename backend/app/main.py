@@ -4,7 +4,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api import health
+from app.api import agents, health
 from app.core.config import settings
 
 
@@ -36,6 +36,7 @@ def create_app() -> FastAPI:
 
     # Include routers
     app.include_router(health.router, prefix="/api/v1", tags=["health"])
+    app.include_router(agents.router, prefix="/api/v1", tags=["agents"])
 
     return app
 
