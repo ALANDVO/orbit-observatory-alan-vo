@@ -56,3 +56,6 @@ Acceptance:
 - Frontend login/logout flow
 - Protected API endpoints
 
+---
+
+Alan Vo · [alanvo.net](https://alanvo.net)

@@ -117,3 +117,7 @@ Environment variables (`.env`):
 
 ## License
 MIT License - Copyright (c) 2024 Alan Vo <alanvo@gmail.com>
+
+---
+
+Alan Vo · [alanvo.net](https://alanvo.net)

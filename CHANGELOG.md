@@ -31,3 +31,7 @@ All notable changes to this project will be documented in this file.
 - Docker Compose configuration
 - Health check page with database connectivity test
 - Basic project structure and documentation
+
+---
+
+Alan Vo · [alanvo.net](https://alanvo.net)
