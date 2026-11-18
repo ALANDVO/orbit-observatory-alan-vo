@@ -1,5 +1,7 @@
 # Orbit Observatory — Alan Vo
 
+Current version: `1.4.0`.
+
 > Work in progress. This checkpoint may be incomplete or fail tests. See PLAN.md and STATUS.md before use.
 
 
@@ -97,6 +99,7 @@ graph TD
 
 ## Features (Planned)
 - **Agent Management**: Create, configure, and monitor AI agents
+  - **Audit Logging**: Track agent creation, updates, and deletions with SQLite persistence
 - **Workflow Execution**: Define and run multi-agent workflows as DAGs
 - **Observability**: Real-time metrics, logs, and execution tracing
 - **Authentication**: OIDC via Keycloak with SAML broker support
