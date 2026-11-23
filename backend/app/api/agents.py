@@ -6,6 +6,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.deps import get_db
 from app.models.agent import Agent
+from app.models.audit_log import AuditLog
 from app.schemas.agent import (
     AgentCreate,
     AgentUpdate,
@@ -46,6 +47,26 @@ async def create_agent(
     db.add(agent)
     await db.commit()
     await db.refresh(agent)
+
+    # Audit log for creation
+    from datetime import datetime
+    audit_entry = AuditLog(
+        entity="Agent",
+        entity_id=agent.id,
+        action="create",
+        new_data={
+            "id": agent.id,
+            "name": agent.name,
+            "description": agent.description,
+            "system_prompt": agent.system_prompt,
+            "config": agent.config,
+            "is_active": agent.is_active,
+        },
+        timestamp=datetime.utcnow(),
+    )
+    db.add(audit_entry)
+    await db.commit()
+
     return agent
 
 
@@ -162,12 +183,43 @@ async def update_agent(
                 detail=f"Agent with name '{agent_in.name}' already exists",
             )
 
+    # Capture old data for audit log
+    old_data = {
+        "id": agent.id,
+        "name": agent.name,
+        "description": agent.description,
+        "system_prompt": agent.system_prompt,
+        "config": agent.config,
+        "is_active": agent.is_active,
+    }
+
     update_data = agent_in.model_dump(exclude_unset=True)
     for field, value in update_data.items():
         setattr(agent, field, value)
 
     await db.commit()
     await db.refresh(agent)
+
+    # Audit log for update
+    from datetime import datetime
+    audit_entry = AuditLog(
+        entity="Agent",
+        entity_id=agent.id,
+        action="update",
+        old_data=old_data,
+        new_data={
+            "id": agent.id,
+            "name": agent.name,
+            "description": agent.description,
+            "system_prompt": agent.system_prompt,
+            "config": agent.config,
+            "is_active": agent.is_active,
+        },
+        timestamp=datetime.utcnow(),
+    )
+    db.add(audit_entry)
+    await db.commit()
+
     return agent
 
 
@@ -189,5 +241,22 @@ async def delete_agent(
             detail=f"Agent with id {agent_id} not found",
         )
 
+    # Audit log for deletion
+    from datetime import datetime
+    audit_entry = AuditLog(
+        entity="Agent",
+        entity_id=agent.id,
+        action="delete",
+        old_data={
+            "id": agent.id,
+            "name": agent.name,
+            "description": agent.description,
+            "system_prompt": agent.system_prompt,
+            "config": agent.config,
+            "is_active": agent.is_active,
+        },
+        timestamp=datetime.utcnow(),
+    )
+    db.add(audit_entry)
     await db.delete(agent)
     await db.commit()

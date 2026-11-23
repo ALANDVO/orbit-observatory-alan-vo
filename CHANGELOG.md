@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.5.0 — work-in-progress checkpoint
+
+Partial code published for continued development. Known issues: STATUS.md.
+
+## 1.4.1 — work-in-progress checkpoint
+
+### Added
+- Audit logging for agent CRUD operations (create, update, delete)
+- AuditLog model tracks entity, action, old_data, and new_data in SQLite
+
+### Changed
+- Updated `backend/app/api/agents.py` to create audit entries on agent lifecycle events
+- Updated PLAN.md and STATUS.md to reflect agent-management progress
+
 ## 1.4.0 — work-in-progress checkpoint
 
 Partial code published for continued development. Known issues: STATUS.md.
@@ -28,17 +42,6 @@ Partial code published for continued development. Known issues: STATUS.md.
 ## 1.0.0 — work-in-progress checkpoint
 
 Partial code published for continued development. Known issues: STATUS.md.
-
-All notable changes to this project will be documented in this file.
-
-## [1.0.0] - 2024-10-21
-
-### Added
-- FastAPI backend skeleton with health endpoints
-- React + Vite + TypeScript frontend skeleton
-- Docker Compose configuration
-- Health check page with database connectivity test
-- Basic project structure and documentation
 
 ---
 
