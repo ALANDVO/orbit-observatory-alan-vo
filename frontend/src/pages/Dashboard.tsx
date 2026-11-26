@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { AgentList } from '../components/AgentList'
 
 export function Dashboard() {
   return (
@@ -14,27 +15,18 @@ export function Dashboard() {
         <Link to="/health" className="btn btn-primary">
           Health Checks
         </Link>
+        <Link to="/agents" className="btn btn-secondary">
+          Agents
+        </Link>
       </nav>
+
+      <AgentList />
 
       <div className="card">
         <h2 style={{ marginBottom: '1rem' }}>Welcome to Orbit Observatory</h2>
         <p style={{ color: '#4b5563', marginBottom: '1.5rem' }}>
-          This is the initial skeleton. The following features are planned:
+          Manage your AI agents through the interface above.
         </p>
-        <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-          <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <span className="badge badge-info">Planned</span>
-            Agent Management (CRUD, listing, detail views)
-          </li>
-          <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <span className="badge badge-info">Planned</span>
-            Workflow Execution (DAG-based, monitoring, history)
-          </li>
-          <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <span className="badge badge-info">Planned</span>
-            OIDC Authentication (Keycloak, JWT validation)
-          </li>
-        </ul>
       </div>
     </div>
   )
